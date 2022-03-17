@@ -1,6 +1,6 @@
 package com.example.viewed.api.items
 
-data class FilmPage(
+data class MoviePage(
     val page: Int,
     val results: List<Info>,
     val total_pages: Int,

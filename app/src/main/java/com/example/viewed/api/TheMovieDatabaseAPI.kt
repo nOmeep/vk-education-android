@@ -1,12 +1,14 @@
 package com.example.viewed.api
 
-import com.example.viewed.api.items.FilmPage
+import com.example.viewed.api.items.MoviePage
+import com.example.viewed.api.items.SingleMovie
 import retrofit2.http.GET
+import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface TheMovieDatabaseAPI {
     companion object {
-        const val BASE_URL = "https://api.themoviedb.org/3/"
+        const val BASE_INFO_URL = "https://api.themoviedb.org/3"
     }
 
     @GET("/search/movie")
@@ -15,5 +17,12 @@ interface TheMovieDatabaseAPI {
         @Query("query") query: String,
         @Query("language") language: String = "ru-Rus",
         @Query("include_adult") includeAdult: Boolean = false,
-    ) : FilmPage
+    ) : MoviePage
+
+    @GET("/movie/{movie_id}")
+    suspend fun findMovieById(
+        @Path("movie_id") movieId: Int,
+        @Query("api_key") key: String,
+        @Query("language") language: String = "ru-Rus"
+    ) : SingleMovie
 }
