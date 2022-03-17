@@ -1,9 +1,10 @@
-package com.example.viewed
+package com.example.viewed.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
+import com.example.viewed.R
 import com.example.viewed.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {

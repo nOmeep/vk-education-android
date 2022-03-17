@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Viewed">
         <activity
-            android:name="com.example.viewed.MainActivity"
+            android:name="com.example.viewed.ui.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

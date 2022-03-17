@@ -7,12 +7,12 @@
 
     <fragment
             android:id="@+id/searchFragment"
-            android:name="com.example.viewed.SearchFragment"
+            android:name="com.example.viewed.ui.fragments.SearchFragment"
             android:label="fragment_search"
             tools:layout="@layout/fragment_search" />
     <fragment
             android:id="@+id/profileFragment"
-            android:name="com.example.viewed.ProfileFragment"
+            android:name="com.example.viewed.ui.fragments.ProfileFragment"
             android:label="fragment_profile"
             tools:layout="@layout/fragment_profile" />
 </navigation>
