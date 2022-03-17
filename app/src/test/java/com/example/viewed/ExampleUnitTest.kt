@@ -1,4 +1,4 @@
-package com.example.emptyproject
+package com.example.viewed
 
 import org.junit.Assert.assertEquals
 import org.junit.Test
