@@ -1,4 +1,4 @@
-package com.example.viewed.ui.fragments
+package com.example.viewed.ui.fragments.profile
 
 import androidx.fragment.app.Fragment
 import com.example.viewed.R

@@ -1,4 +1,4 @@
-package com.example.viewed.ui.fragments
+package com.example.viewed.ui.fragments.search
 
 import android.os.Bundle
 import android.view.View
@@ -9,9 +9,17 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class SearchFragment : Fragment(R.layout.fragment_search) {
-    private lateinit var binding: FragmentSearchBinding
+    private var _binding: FragmentSearchBinding? = null
+    private val binding
+        get() = _binding!!
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        _binding = FragmentSearchBinding.bind(view)
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

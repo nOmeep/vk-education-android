@@ -17,12 +17,12 @@ interface TheMovieDatabaseAPI {
         @Query("query") query: String,
         @Query("language") language: String = "ru-Rus",
         @Query("include_adult") includeAdult: Boolean = false,
-    ) : MoviePage
+    ): MoviePage
 
     @GET("/movie/{movie_id}")
     suspend fun findMovieById(
         @Path("movie_id") movieId: Int,
         @Query("api_key") key: String,
         @Query("language") language: String = "ru-Rus"
-    ) : SingleMovie
+    ): SingleMovie
 }
