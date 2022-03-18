@@ -1,6 +1,6 @@
 package com.example.viewed.di
 
-import com.example.viewed.api.TheMovieDatabaseAPI
+import com.example.model.apilogic.TheMovieDatabaseAPI
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
