@@ -7,7 +7,12 @@ import com.example.viewed.R
 import com.example.viewed.databinding.FragmentSearchResultMovieBinding
 
 class SearchResultMovieFragment : Fragment(R.layout.fragment_search_result_movie) {
+    private var _binding: FragmentSearchResultMovieBinding? = null
+    private val binding
+        get() = _binding!!
+
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        val binding = FragmentSearchResultMovieBinding.bind(view)
+        _binding = FragmentSearchResultMovieBinding.bind(view)
     }
 }
