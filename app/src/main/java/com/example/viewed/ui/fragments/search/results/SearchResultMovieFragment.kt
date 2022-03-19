@@ -11,7 +11,6 @@ class SearchResultMovieFragment : Fragment(R.layout.fragment_search_result_movie
     private val binding
         get() = _binding!!
 
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         _binding = FragmentSearchResultMovieBinding.bind(view)
     }
