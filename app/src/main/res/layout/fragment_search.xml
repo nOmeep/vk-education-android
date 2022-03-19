@@ -4,19 +4,26 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:padding="4dp"
         tools:context=".ui.fragments.search.SearchFragment">
 
     <EditText
             android:id="@+id/etSearch"
-            android:layout_margin="4dp"
-            android:hint="Search..."
             android:layout_width="match_parent"
-            android:layout_height="40dp" />
+            android:hint="Search"
+            android:layout_height="50dp"
+            android:layout_marginBottom="4dp"/>
 
-    <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvSearchList"
-            android:layout_weight="1"
+    <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tlResultTabs"
             android:layout_width="match_parent"
-            android:layout_height="0dp" />
+            android:layout_height="50dp" />
+
+    <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/vp2Pager"
+            android:layout_width="match_parent"
+            android:background="#897D7D"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
 
 </LinearLayout>
