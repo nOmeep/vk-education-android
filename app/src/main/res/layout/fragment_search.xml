@@ -4,20 +4,20 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="4dp"
+        android:padding="@dimen/small_margin_or_padding_4dp"
         tools:context=".ui.fragments.search.SearchFragment">
 
     <EditText
             android:id="@+id/etSearch"
             android:layout_width="match_parent"
             android:hint="Search"
-            android:layout_height="50dp"
-            android:layout_marginBottom="4dp" />
+            android:layout_height="@dimen/small_bar_height_50dp" />
 
     <com.google.android.material.tabs.TabLayout
             android:id="@+id/tlResultTabs"
             android:layout_width="match_parent"
-            android:layout_height="50dp" />
+            android:layout_marginVertical="@dimen/small_margin_or_padding_4dp"
+            android:layout_height="@dimen/small_bar_height_50dp" />
 
     <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/vp2Pager"

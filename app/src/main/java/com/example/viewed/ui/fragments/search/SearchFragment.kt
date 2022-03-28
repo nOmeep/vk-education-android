@@ -20,7 +20,10 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
 
         binding.vp2Pager.adapter = SearchAdapter(this)
         TabLayoutMediator(binding.tlResultTabs, binding.vp2Pager) { tab, position ->
-            tab.text = if (position == 0) "Films" else "Actors"
+            tab.text = when (position) {
+                0 -> "Films"
+                else -> "Actors"
+            }
         }.attach()
     }
 
