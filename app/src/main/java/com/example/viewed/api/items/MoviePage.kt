@@ -9,7 +9,7 @@ data class MoviePage(
     data class Info(
         val adult: Boolean,
         val backdrop_path: String?,
-        val genre_ids: List<Int>,
+        val genre_ids: List<Float>,
         val id: Int,
         val original_language: String,
         val original_title: String,
@@ -19,7 +19,7 @@ data class MoviePage(
         val release_date: String,
         val title: String,
         val video: Boolean,
-        val vote_average: Int,
-        val vote_count: Int
+        val vote_average: Float,
+        val vote_count: Float
     )
 }

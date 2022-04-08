@@ -36,11 +36,13 @@
             app:layout_constraintLeft_toRightOf="@id/ivMoviePoster"
             app:layout_constraintBottom_toBottomOf="parent" />
 
-    <Button
-            android:id="@+id/btnAddToList"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+    <TextView
+            android:id="@+id/tvAddToList"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/add_to_list"
             android:layout_marginEnd="16dp"
+            android:textStyle="italic|bold"
             android:layout_marginBottom="16dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintRight_toRightOf="parent" />
