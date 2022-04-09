@@ -15,7 +15,7 @@ interface TheMovieDatabaseAPI {
     suspend fun searchForMovies(
         @Query("api_key") key: String,
         @Query("query") query: String,
-        @Query("page") page: Int = 1,
+        @Query("page") page: Int,
         @Query("language") language: String = "ru-Rus",
         @Query("include_adult") includeAdult: Boolean = false,
     ): MoviePage

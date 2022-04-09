@@ -1,25 +1,27 @@
 package com.example.viewed.ui.fragments.viewmodels
 
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
-import com.example.viewed.api.items.MoviePage
+import androidx.lifecycle.*
+import androidx.paging.PagingData
+import androidx.paging.cachedIn
+import com.example.viewed.api.items.MoviePage.Info
 import com.example.viewed.api.repo.SearchRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
 class SearchViewModel @Inject constructor(
     private val repository: SearchRepository
 ) : ViewModel() {
-    private val searchedMovies = MutableLiveData<MoviePage>()
+    private val currentQuery = MutableLiveData<String>("PIE")
 
-    init {
-        viewModelScope.launch {
-            searchedMovies.value = repository.getMoviePageByQuery("5c517a179d559dfff951527fe14474bf", "pie")
+    fun getMovies(): LiveData<PagingData<Info>> {
+        return currentQuery.switchMap { queryString ->
+            repository.findMoviesByQuery(queryString)
+                .cachedIn(viewModelScope)
         }
     }
 
-    fun getSearchedMovies() = searchedMovies
+    fun switchQuery(query: String) {
+        currentQuery.value = query
+    }
 }

@@ -2,26 +2,31 @@ package com.example.viewed.ui.fragments.search
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.recyclerview.widget.AsyncListDiffer
+import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.example.viewed.R
 import com.example.viewed.api.items.MoviePage.Info
 import com.example.viewed.databinding.ItemSearchResultMovieBinding
 import com.example.viewed.ui.fragments.search.SearchedItemsAdapter.SearchedItemsViewHolder
 
-class SearchedItemsAdapter : RecyclerView.Adapter<SearchedItemsViewHolder>() {
+class SearchedItemsAdapter : PagingDataAdapter<Info, SearchedItemsViewHolder>(DIFF_UTIL) {
     inner class SearchedItemsViewHolder(private val binding: ItemSearchResultMovieBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(info: Info) {
             binding.apply {
+                Glide.with(itemView)
+                    .load("https://image.tmdb.org/t/p/w500/${info.poster_path}")
+                    .error(R.drawable.ic_launcher_background)
+                    .into(ivMoviePoster)
+
                 tvTitle.text = info.title
                 tvYear.text = info.release_date
             }
         }
     }
-
-    private val asyncDiffer = AsyncListDiffer(this, DIFF_UTIL)
 
     companion object {
         private val DIFF_UTIL = object : DiffUtil.ItemCallback<Info>() {
@@ -37,10 +42,6 @@ class SearchedItemsAdapter : RecyclerView.Adapter<SearchedItemsViewHolder>() {
         }
     }
 
-    fun submitList(list: List<Info>) {
-        asyncDiffer.submitList(list)
-    }
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SearchedItemsViewHolder {
         val binding =
             ItemSearchResultMovieBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -48,9 +49,9 @@ class SearchedItemsAdapter : RecyclerView.Adapter<SearchedItemsViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: SearchedItemsViewHolder, position: Int) {
-        val currentItem = asyncDiffer.currentList[position]
-        holder.bind(currentItem)
+        val currentItem = getItem(position)
+        if (currentItem != null) {
+            holder.bind(currentItem)
+        }
     }
-
-    override fun getItemCount() = asyncDiffer.currentList.size
 }

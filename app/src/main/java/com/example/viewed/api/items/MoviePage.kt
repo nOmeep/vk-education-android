@@ -20,6 +20,6 @@ data class MoviePage(
         val title: String,
         val video: Boolean,
         val vote_average: Float,
-        val vote_count: Float
+        val vote_count: Int
     )
 }
