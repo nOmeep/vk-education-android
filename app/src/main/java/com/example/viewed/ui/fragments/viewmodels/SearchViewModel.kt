@@ -1,6 +1,10 @@
 package com.example.viewed.ui.fragments.viewmodels
 
-import androidx.lifecycle.*
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.switchMap
+import androidx.lifecycle.viewModelScope
 import androidx.paging.PagingData
 import androidx.paging.cachedIn
 import com.example.viewed.api.items.MoviePage.Info
@@ -12,7 +16,7 @@ import javax.inject.Inject
 class SearchViewModel @Inject constructor(
     private val repository: SearchRepository
 ) : ViewModel() {
-    private val currentQuery = MutableLiveData<String>("PIE")
+    private val currentQuery = MutableLiveData("PIE")
 
     fun getMovies(): LiveData<PagingData<Info>> {
         return currentQuery.switchMap { queryString ->

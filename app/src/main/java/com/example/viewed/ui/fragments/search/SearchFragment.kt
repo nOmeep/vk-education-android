@@ -24,7 +24,11 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
         super.onViewCreated(view, savedInstanceState)
         _binding = FragmentSearchBinding.bind(view)
 
-        binding.etSearch.setOnQueryTextListener(QueryChangedListener { str: String -> viewModel.switchQuery(str) })
+        binding.etSearch.setOnQueryTextListener(
+            QueryChangedListener { str: String ->
+                viewModel.switchQuery(str)
+            }
+        )
 
         binding.rvSearchResult.adapter = searchedMoviesAdapter
 
