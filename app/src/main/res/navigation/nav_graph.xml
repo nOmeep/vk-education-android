@@ -11,8 +11,8 @@
             android:label="fragment_search"
             tools:layout="@layout/fragment_search" />
     <fragment
-            android:id="@+id/profileFragment"
-            android:name="com.example.viewed.ui.fragments.profile.ProfileFragment"
+            android:id="@+id/listsFragment"
+            android:name="com.example.viewed.ui.fragments.lists.ListsFragment"
             android:label="fragment_profile"
-            tools:layout="@layout/fragment_profile" />
+            tools:layout="@layout/fragment_lists" />
 </navigation>

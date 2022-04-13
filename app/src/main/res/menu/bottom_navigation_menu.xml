@@ -6,7 +6,7 @@
             android:title="Search" />
 
     <item
-            android:id="@+id/profileFragment"
-            android:title="Profile" />
+            android:id="@+id/listsFragment"
+            android:title="My list" />
 
 </menu>

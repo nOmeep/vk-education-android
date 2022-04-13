@@ -7,4 +7,7 @@
     <string name="error_message">Что-то пошло не так</string>
     <string name="retry">Повторить</string>
     <string name="search">Поиск</string>
+    <string name="watched">Просмотренно</string>
+    <string name="watching">Смотрю</string>
+    <string name="will_watch">Буду смотреть</string>
 </resources>
