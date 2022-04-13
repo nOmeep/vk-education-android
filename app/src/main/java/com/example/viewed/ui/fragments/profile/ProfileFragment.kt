@@ -1,8 +1,8 @@
 package com.example.viewed.ui.fragments.profile
 
-import androidx.fragment.app.Fragment
-import com.example.viewed.R
+import com.example.viewed.databinding.FragmentProfileBinding
+import com.example.viewed.ui.fragments.BaseFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class ProfileFragment : Fragment(R.layout.fragment_profile)
+class ProfileFragment : BaseFragment<FragmentProfileBinding>(FragmentProfileBinding::inflate)
