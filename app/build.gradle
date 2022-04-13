@@ -3,6 +3,7 @@ plugins {
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-kapt'
     id 'dagger.hilt.android.plugin'
+    id 'com.google.secrets_gradle_plugin' version '0.4'
 }
 
 android {
@@ -20,6 +21,10 @@ android {
     buildFeatures {
         viewBinding = true
     }
+
+    def localProperties = new Properties()
+    localProperties.load(new FileInputStream(rootProject.file("local.properties")))
+
     buildTypes {
         release {
             minifyEnabled false
@@ -32,6 +37,11 @@ android {
     }
     kotlinOptions {
         jvmTarget = '1.8'
+    }
+    buildTypes {
+        debug {
+            resValue("string", "api_key", localProperties['API_KEY'])
+        }
     }
 }
 
@@ -73,6 +83,9 @@ dependencies {
     kapt "com.google.dagger:hilt-compiler:2.38.1"
 
     // Navigation
-    implementation "androidx.navigation:navigation-fragment-ktx:2.4.1"
-    implementation "androidx.navigation:navigation-ui-ktx:2.4.1"
+    implementation "androidx.navigation:navigation-fragment-ktx:2.4.2"
+    implementation "androidx.navigation:navigation-ui-ktx:2.4.2"
+
+    // Paging3
+    implementation "androidx.paging:paging-runtime:3.1.1"
 }
