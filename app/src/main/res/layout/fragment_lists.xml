@@ -17,35 +17,38 @@
             android:layout_marginHorizontal="8dp"
             android:id="@+id/list_select">
 
-        <TextView
+        <RadioButton
                 android:text="@string/watched"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/button_watched"
                 android:layout_weight="1"
-                android:textSize="15sp"
+                android:textSize="14sp"
                 android:gravity="center"
-                android:padding="5dp"/>
+                android:padding="5dp"
+                android:button="@null"/>
 
-        <TextView
+        <RadioButton
                 android:text="@string/watching"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/button_watching"
                 android:layout_weight="1"
-                android:textSize="15sp"
+                android:textSize="14sp"
                 android:gravity="center"
-                android:padding="5dp"/>
+                android:padding="5dp"
+                android:button="@null"/>
 
-        <TextView
+        <RadioButton
                 android:text="@string/will_watch"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/button_will_watch"
                 android:layout_weight="1"
-                android:textSize="15sp"
+                android:textSize="14sp"
                 android:gravity="center"
-                android:padding="5dp"/>
+                android:padding="5dp"
+                android:button="@null"/>
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
