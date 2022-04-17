@@ -1,11 +1,9 @@
 package com.example.viewed.ui.fragments.viewmodels
 
-import androidx.lifecycle.* // ktlint-disable no-wildcard-imports
+import androidx.lifecycle.ViewModel
 import com.example.viewed.api.items.SingleMovie
 import com.example.viewed.api.repo.ProfileRepository
-import com.example.viewed.db.CardsDB
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.runBlocking
 import javax.inject.Inject
 
 @HiltViewModel
