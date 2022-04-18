@@ -24,6 +24,7 @@ class SearchedItemsAdapter : PagingDataAdapter<Info, SearchedItemsViewHolder>(DI
 
                 tvTitle.text = info.title
                 tvYear.text = info.release_date
+                tvDescription.text = info.overview
             }
         }
     }

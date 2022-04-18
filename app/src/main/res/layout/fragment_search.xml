@@ -6,6 +6,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="@dimen/small_margin_or_padding_4dp"
+        android:background="@color/background"
         tools:context=".ui.fragments.search.SearchFragment">
 
     <com.google.android.material.textfield.TextInputLayout
@@ -22,14 +23,19 @@
             app:errorEnabled="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="4dp">
 
         <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etSearch"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/search"
-                android:inputType="text" />
+                android:textColor="@color/text"
+                android:textSize="17sp"
+                android:inputType="text"
+                android:textColorHint="@color/text"
+                android:background="@drawable/rounded_corners_search" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <androidx.recyclerview.widget.RecyclerView
@@ -52,6 +58,7 @@
             android:visibility="gone"
             tools:visibility="visible"
             android:textSize="20sp"
+            android:textColor="@color/text"
             app:layout_constraintTop_toTopOf="@id/rvSearchResult"
             app:layout_constraintBottom_toBottomOf="@id/rvSearchResult"
             app:layout_constraintLeft_toLeftOf="@id/rvSearchResult"
@@ -66,7 +73,8 @@
             tools:visibility="visible"
             app:layout_constraintLeft_toLeftOf="@id/tvErrorMessage"
             app:layout_constraintTop_toBottomOf="@id/tvErrorMessage"
-            app:layout_constraintRight_toRightOf="@id/tvErrorMessage" />
+            app:layout_constraintRight_toRightOf="@id/tvErrorMessage"
+            />
 
     <ProgressBar
             android:id="@+id/pbLoading"
@@ -77,7 +85,8 @@
             app:layout_constraintTop_toTopOf="@id/rvSearchResult"
             app:layout_constraintBottom_toBottomOf="@id/rvSearchResult"
             app:layout_constraintLeft_toLeftOf="@id/rvSearchResult"
-            app:layout_constraintRight_toRightOf="@id/rvSearchResult" />
+            app:layout_constraintRight_toRightOf="@id/rvSearchResult"
+            style="@android:style/Widget.Holo.ProgressBar" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
