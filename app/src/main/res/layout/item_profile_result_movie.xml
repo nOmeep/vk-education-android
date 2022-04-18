@@ -40,7 +40,7 @@
             app:layout_constraintBottom_toBottomOf="parent" />
 
     <TextView
-            android:id="@+id/tvDelToList"
+            android:id="@+id/tvDelToObject"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/delete"

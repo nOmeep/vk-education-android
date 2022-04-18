@@ -25,12 +25,12 @@ interface CardsItems {
     @Insert(entity = CardsWatch::class, onConflict = OnConflictStrategy.REPLACE)
     fun addCardWatch(card: CardsWatch)
 
-    @Delete(entity = CardsLater::class)
-    fun deleteCardLater(card: CardsLater)
+    @Query("delete from later where later.id = :id")
+    fun deleteCardLater(id: Int)
 
-    @Delete(entity = CardsViewed::class)
-    fun deleteCardViewed(card: CardsViewed)
+    @Query("delete from viewed where viewed.id = :id")
+    fun deleteCardViewed(id: Int)
 
-    @Delete(entity = CardsWatch::class)
-    fun deleteCardWatch(card: CardsWatch)
+    @Query("delete from watch where watch.id = :id")
+    fun deleteCardWatch(id: Int)
 }

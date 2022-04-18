@@ -23,9 +23,42 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
         _binding = FragmentProfileBinding.bind(view)
 
         runBlocking {
-            viewModel.insert()
-            val profileMoviesAdapter = ProfileItemsAdapter(viewModel.getMoviesByViewed())
+            viewModel.insert() // test
+            val profileMoviesAdapter = ProfileItemsAdapter(
+                viewModel.getMoviesByViewed(),
+                viewModel::delMoviesByViewed
+            )
             binding.rvProfileResult.adapter = profileMoviesAdapter
+        }
+
+        binding.viewed.setOnClickListener {
+            runBlocking {
+                val profileMoviesAdapter = ProfileItemsAdapter(
+                    viewModel.getMoviesByViewed(),
+                    viewModel::delMoviesByViewed
+                )
+                binding.rvProfileResult.adapter = profileMoviesAdapter
+            }
+        }
+
+        binding.later.setOnClickListener {
+            runBlocking {
+                val profileMoviesAdapter = ProfileItemsAdapter(
+                    viewModel.getMoviesByLater(),
+                    viewModel::delMoviesByLater
+                )
+                binding.rvProfileResult.adapter = profileMoviesAdapter
+            }
+        }
+
+        binding.watch.setOnClickListener {
+            runBlocking {
+                val profileMoviesAdapter = ProfileItemsAdapter(
+                    viewModel.getMoviesByWatch(),
+                    viewModel::delMoviesByWatch
+                )
+                binding.rvProfileResult.adapter = profileMoviesAdapter
+            }
         }
     }
 

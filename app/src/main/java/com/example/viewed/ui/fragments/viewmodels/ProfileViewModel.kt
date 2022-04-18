@@ -22,7 +22,19 @@ class ProfileViewModel @Inject constructor(
         return repository.findMoviesByLater()
     }
 
-    suspend fun insert() {
-        return repository.insert()
+    fun insert() {
+        repository.insertMoviesByViewed(10) // test
+    }
+
+    fun delMoviesByWatch(id: Int) {
+        repository.delMoviesByWatch(id)
+    }
+
+    fun delMoviesByViewed(id: Int) {
+        repository.delMoviesByViewed(id)
+    }
+
+    fun delMoviesByLater(id: Int) {
+        repository.delMoviesByLater(id)
     }
 }
