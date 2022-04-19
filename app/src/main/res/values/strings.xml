@@ -7,4 +7,6 @@
     <string name="error_message">Что-то пошло не так</string>
     <string name="retry">Повторить</string>
     <string name="search">Поиск</string>
+    <string name="search_nav">Поиск</string>
+    <string name="saved_films_nav">Мои фильмы</string>
 </resources>

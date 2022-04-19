@@ -19,12 +19,15 @@ class SearchedItemsAdapter : PagingDataAdapter<Info, SearchedItemsViewHolder>(DI
             binding.apply {
                 Glide.with(itemView)
                     .load("https://image.tmdb.org/t/p/w500/${info.poster_path}")
-                    .error(R.drawable.ic_launcher_background)
+                    .error(R.drawable.no_poster)
                     .into(ivMoviePoster)
 
                 tvTitle.text = info.title
-                tvYear.text = info.release_date
+                val data: String = info.release_date
+                val year: String = if (data.length > 4) data.substring(0, 4) else data
+                tvYearCountry.text = year
                 tvDescription.text = info.overview
+                tvRating.text = info.vote_average.toString()
             }
         }
     }

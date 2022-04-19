@@ -16,14 +16,12 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_marginHorizontal="@dimen/small_margin_or_padding_4dp"
-            app:boxCornerRadiusBottomEnd="15dp"
-            app:boxCornerRadiusBottomStart="15dp"
-            app:boxCornerRadiusTopEnd="15dp"
-            app:boxCornerRadiusTopStart="15dp"
             app:errorEnabled="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            app:hintTextColor="@color/light_text"
+            android:textColorHint="@color/light_text"
             android:layout_marginTop="4dp">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -31,10 +29,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/search"
-                android:textColor="@color/text"
                 android:textSize="17sp"
                 android:inputType="text"
-                android:textColorHint="@color/text"
+                android:textColor="@color/text"
                 android:background="@drawable/rounded_corners_search" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -58,7 +55,6 @@
             android:visibility="gone"
             tools:visibility="visible"
             android:textSize="20sp"
-            android:textColor="@color/text"
             app:layout_constraintTop_toTopOf="@id/rvSearchResult"
             app:layout_constraintBottom_toBottomOf="@id/rvSearchResult"
             app:layout_constraintLeft_toLeftOf="@id/rvSearchResult"

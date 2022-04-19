@@ -20,6 +20,9 @@
             android:id="@+id/bnvNavigationBar"
             android:layout_width="match_parent"
             android:layout_height="@dimen/bottom_navigation_view_height"
-            app:menu="@menu/bottom_navigation_menu" />
+            app:menu="@menu/bottom_navigation_menu"
+            app:itemBackground="@color/background"
+            app:itemTextColor="@color/white"
+            android:background="@color/background" />
 
 </LinearLayout>

@@ -3,10 +3,10 @@
 
     <item
             android:id="@+id/searchFragment"
-            android:title="Search" />
+            android:title="@string/search_nav" />
 
     <item
             android:id="@+id/profileFragment"
-            android:title="Profile" />
+            android:title="@string/saved_films_nav" />
 
 </menu>
