@@ -7,7 +7,7 @@ import com.example.viewed.db.items.CardsViewed
 import com.example.viewed.db.items.CardsWatch
 
 @Dao
-interface CardsItems {
+interface CardsItemsDAO {
     @Query("select id from later")
     fun getAllCardsLater(): LiveData<List<CardsLater>>
 

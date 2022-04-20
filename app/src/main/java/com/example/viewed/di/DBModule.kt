@@ -17,6 +17,5 @@ object DBModule {
     @Singleton
     fun provideCardsDatabase(app: Application) =
         Room.databaseBuilder(app, CardsDB::class.java, DATABASE_NAME)
-            .allowMainThreadQueries()
             .build()
 }

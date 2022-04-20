@@ -12,6 +12,6 @@ abstract class CardsDB : RoomDatabase() {
         const val DATABASE_NAME = "cards_database"
     }
 
-    abstract fun cardsItemsQuery(): CardsItems
+    abstract fun cardsItemsQuery(): CardsItemsDAO
 }
 
