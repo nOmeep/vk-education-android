@@ -1,10 +1,6 @@
 package com.example.viewed.ui.fragments.viewmodels
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.switchMap
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.* // ktlint-disable no-wildcard-imports
 import androidx.paging.PagingData
 import androidx.paging.cachedIn
 import com.example.viewed.api.items.MoviePage.Info
