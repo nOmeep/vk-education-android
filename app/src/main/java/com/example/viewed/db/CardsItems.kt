@@ -1,5 +1,6 @@
 package com.example.viewed.db
 
+import androidx.lifecycle.LiveData
 import androidx.room.* // ktlint-disable no-wildcard-imports
 import com.example.viewed.db.items.CardsLater
 import com.example.viewed.db.items.CardsViewed
@@ -8,13 +9,13 @@ import com.example.viewed.db.items.CardsWatch
 @Dao
 interface CardsItems {
     @Query("select id from later")
-    fun getAllCardsLater(): List<CardsLater>
+    fun getAllCardsLater(): LiveData<List<CardsLater>>
 
     @Query("select id from viewed")
-    fun getAllCardsViewed(): List<CardsViewed>
+    fun getAllCardsViewed(): LiveData<List<CardsViewed>>
 
     @Query("select id from watch")
-    fun getAllCardsWatch(): List<CardsWatch>
+    fun getAllCardsWatch(): LiveData<List<CardsWatch>>
 
     @Insert(entity = CardsLater::class, onConflict = OnConflictStrategy.REPLACE)
     fun addCardLater(card: CardsLater)

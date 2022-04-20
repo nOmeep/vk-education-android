@@ -1,6 +1,7 @@
 package com.example.viewed.api.repo
 
-import androidx.paging.PagingSource
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import com.example.viewed.BuildConfig
 import com.example.viewed.api.TheMovieDatabaseAPI
 import com.example.viewed.api.items.SingleMovie
@@ -17,9 +18,15 @@ class ProfileRepository @Inject constructor(
     db: CardsDB
 ) {
     private val profileDAO = db.cardsItemsQuery()
-    suspend fun findMoviesByWatch(): MutableList<SingleMovie> {
+    private val current = MutableLiveData<List<SingleMovie>>()
+
+    fun findMoviesLiveData(): LiveData<List<SingleMovie>> {
+        return current
+    }
+
+    suspend fun findMoviesByWatch() {
         val listMovies = mutableListOf<SingleMovie>()
-        profileDAO.getAllCardsWatch().forEach { cardsWatch ->
+        profileDAO.getAllCardsWatch().value?.forEach { cardsWatch ->
             try {
                 listMovies.add(api.findMovieById(cardsWatch.Id, BuildConfig.API_KEY))
             } catch (e: IOException) {
@@ -28,12 +35,12 @@ class ProfileRepository @Inject constructor(
                 print(e)
             }
         }
-        return listMovies
+        current.value = listMovies
     }
 
-    suspend fun findMoviesByViewed(): MutableList<SingleMovie> {
+    suspend fun findMoviesByViewed() {
         val listMovies = mutableListOf<SingleMovie>()
-        profileDAO.getAllCardsViewed().forEach { cardsViewed ->
+        profileDAO.getAllCardsViewed().value?.forEach { cardsViewed ->
             try {
                 listMovies.add(api.findMovieById(cardsViewed.Id, BuildConfig.API_KEY))
             } catch (e: IOException) {
@@ -42,12 +49,12 @@ class ProfileRepository @Inject constructor(
                 print(e)
             }
         }
-        return listMovies
+        current.value = listMovies
     }
 
-    suspend fun findMoviesByLater(): MutableList<SingleMovie> {
+    suspend fun findMoviesByLater() {
         val listMovies = mutableListOf<SingleMovie>()
-        profileDAO.getAllCardsLater().forEach { cardsLater ->
+        profileDAO.getAllCardsLater().value?.forEach { cardsLater ->
             try {
                 listMovies.add(api.findMovieById(cardsLater.Id, BuildConfig.API_KEY))
             } catch (e: IOException) {
@@ -56,7 +63,7 @@ class ProfileRepository @Inject constructor(
                 print(e)
             }
         }
-        return listMovies
+        current.value = listMovies
     }
 
     fun insertMoviesByWatch(id: Int) {

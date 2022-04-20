@@ -1,29 +1,33 @@
 package com.example.viewed.ui.fragments.viewmodels
 
-import androidx.lifecycle.ViewModel
-import com.example.viewed.api.items.SingleMovie
+import androidx.lifecycle.*
 import com.example.viewed.api.repo.ProfileRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
 class ProfileViewModel @Inject constructor(
     private val repository: ProfileRepository
 ) : ViewModel() {
-    suspend fun getMoviesByWatch(): MutableList<SingleMovie> {
-        return repository.findMoviesByWatch()
+    fun getMoviesLiveData() = repository.findMoviesLiveData()
+
+    fun switchMoviesWatch() {
+        viewModelScope.launch {
+            repository.findMoviesByWatch()
+        }
     }
 
-    suspend fun getMoviesByViewed(): MutableList<SingleMovie> {
-        return repository.findMoviesByViewed()
+    fun switchMoviesViewed() {
+        viewModelScope.launch {
+            repository.findMoviesByViewed()
+        }
     }
 
-    suspend fun getMoviesByLater(): MutableList<SingleMovie> {
-        return repository.findMoviesByLater()
-    }
-
-    fun insert() {
-        repository.insertMoviesByViewed(10) // test
+    fun switchMoviesLater() {
+        viewModelScope.launch {
+            repository.findMoviesByLater()
+        }
     }
 
     fun delMoviesByWatch(id: Int) {
