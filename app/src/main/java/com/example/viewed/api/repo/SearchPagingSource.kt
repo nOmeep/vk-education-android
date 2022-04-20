@@ -1,5 +1,6 @@
 package com.example.viewed.api.repo
 
+import android.util.Log
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.example.viewed.BuildConfig
@@ -28,8 +29,10 @@ class SearchPagingSource(
                 nextKey = if (response.results.isEmpty()) null else position + 1
             )
         } catch (e: IOException) {
+            Log.d("TAG", e.toString())
             LoadResult.Error(e)
         } catch (e: HttpException) {
+            Log.d("TAG", e.message())
             LoadResult.Error(e)
         }
     }

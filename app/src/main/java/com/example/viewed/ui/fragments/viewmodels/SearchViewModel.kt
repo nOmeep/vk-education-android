@@ -12,7 +12,7 @@ import javax.inject.Inject
 class SearchViewModel @Inject constructor(
     private val repository: SearchRepository
 ) : ViewModel() {
-    private val currentQuery = MutableLiveData("PIE")
+    private val currentQuery = MutableLiveData<String>()
 
     fun getMovies(): LiveData<PagingData<Info>> {
         return currentQuery.switchMap { queryString ->
