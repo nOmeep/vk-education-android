@@ -6,6 +6,8 @@ import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners
+import com.bumptech.glide.request.RequestOptions
 import com.example.viewed.R
 import com.example.viewed.api.items.MoviePage.Info
 import com.example.viewed.databinding.ItemSearchResultMovieBinding
@@ -19,11 +21,16 @@ class SearchedItemsAdapter : PagingDataAdapter<Info, SearchedItemsViewHolder>(DI
             binding.apply {
                 Glide.with(itemView)
                     .load("https://image.tmdb.org/t/p/w500/${info.poster_path}")
-                    .error(R.drawable.ic_launcher_background)
+                    .apply (RequestOptions.bitmapTransform (RoundedCorners (14)))
+                    .error(R.drawable.no_poster)
                     .into(ivMoviePoster)
 
                 tvTitle.text = info.title
-                tvYear.text = info.release_date
+                val data: String = info.release_date
+                val year: String = if (data.length > 4) data.substring(0, 4) else data
+                tvYear.text = year
+                tvDescription.text = info.overview
+                tvRating.text = info.vote_average.toString()
             }
         }
     }

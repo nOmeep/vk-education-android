@@ -6,6 +6,8 @@ import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners
+import com.bumptech.glide.request.RequestOptions
 import com.example.viewed.R
 import com.example.viewed.api.items.SingleMovie
 import com.example.viewed.databinding.ItemProfileResultMovieBinding
@@ -20,11 +22,14 @@ class ProfileItemsAdapter(private var deleteFunction: (id: Int) -> Unit) : Recyc
             binding.apply {
                 Glide.with(itemView)
                     .load("https://image.tmdb.org/t/p/w500/${info.poster_path}")
-                    .error(R.drawable.ic_launcher_background)
+                    .apply (RequestOptions.bitmapTransform (RoundedCorners (14)))
+                    .error(R.drawable.no_poster)
                     .into(ivMoviePoster)
 
                 tvTitle.text = info.title
-                tvYear.text = info.release_date
+                val data: String = info.release_date
+                val year: String = if (data.length > 4) data.substring(0, 4) else data
+                tvYear.text = year
                 tvDelToObject.setOnClickListener {
                     deleteFunction.invoke(info.id)
                 }
