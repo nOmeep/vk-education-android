@@ -2,14 +2,17 @@ package com.example.viewed.ui.fragments.viewmodels
 
 import androidx.lifecycle.*
 import com.example.viewed.api.repo.ProfileRepository
+import com.google.firebase.auth.FirebaseAuth
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
 class ProfileViewModel @Inject constructor(
-    private val repository: ProfileRepository
+    private val repository: ProfileRepository,
+    firebaseAuth: FirebaseAuth
 ) : ViewModel() {
+    private var auth = firebaseAuth
     fun getMoviesLiveData() = repository.findMoviesLiveData()
 
     fun switchMoviesWatch() {
@@ -40,5 +43,9 @@ class ProfileViewModel @Inject constructor(
 
     fun delMoviesByLater(id: Int) {
         repository.delMoviesByLater(id)
+    }
+
+    fun getUserName(): String {
+        return auth.currentUser.toString()
     }
 }

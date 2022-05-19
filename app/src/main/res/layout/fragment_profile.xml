@@ -7,20 +7,42 @@
     android:background="@color/background"
         tools:context=".ui.fragments.profile.ProfileFragment">
 
-    <TextView
-            android:layout_width="match_parent"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:id="@+id/header">
+
+        <TextView
+            android:id="@+id/email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:text="@string/name"
+            android:textSize="15sp"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_weight="2" />
+
+        <TextView
             android:layout_height="wrap_content"
             android:gravity="center"
             android:textSize="25sp"
-            android:text="@string/profile"
-            android:id="@+id/profileFragment"
-            app:layout_constraintTop_toTopOf="parent"/>
+            android:text="@string/signIn"
+            android:id="@+id/exitOrLogin"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_weight="1" />
+    </LinearLayout>
 
     <Button
             android:text="@string/viewed"
             android:textSize="11sp"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/profileFragment"
+            app:layout_constraintTop_toBottomOf="@id/header"
             app:layout_constraintRight_toLeftOf="@id/watch"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -29,7 +51,7 @@
     <Button
             android:text="@string/watch"
             android:textSize="11sp"
-            app:layout_constraintTop_toBottomOf="@id/profileFragment"
+            app:layout_constraintTop_toBottomOf="@id/header"
             app:layout_constraintLeft_toRightOf="@id/viewed"
             android:layout_width="0dp"
             app:layout_constraintRight_toLeftOf="@id/later"
@@ -39,7 +61,7 @@
     <Button
             android:text="@string/later"
             android:textSize="11sp"
-            app:layout_constraintTop_toBottomOf="@id/profileFragment"
+            app:layout_constraintTop_toBottomOf="@id/header"
             app:layout_constraintLeft_toRightOf="@id/watch"
             app:layout_constraintRight_toRightOf="parent"
             android:layout_width="0dp"
