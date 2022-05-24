@@ -14,4 +14,3 @@ abstract class CardsDB : RoomDatabase() {
 
     abstract fun cardsItemsQuery(): CardsItemsDAO
 }
-
