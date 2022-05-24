@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.example.viewed.screens.main.MainFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_mainFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_futureFragment"
+            app:destination="@id/futureFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.example.viewed.screens.detail.DetailFragment"
+        android:label="fragment_detail"
+        tools:layout="@layout/fragment_detail" >
+        <action
+            android:id="@+id/action_detailFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/futureFragment"
+        android:name="com.example.viewed.screens.futures.FutureFragment"
+        android:label="fragment_future"
+        tools:layout="@layout/fragment_future" >
+        <action
+            android:id="@+id/action_futureFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+        <action
+            android:id="@+id/action_futureFragment_to_FDetailFragment2"
+            app:destination="@id/FDetailFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/FDetailFragment2"
+        android:name="com.example.viewed.screens.detail.FDetailFragment"
+        android:label="fragment_f_deatail"
+        tools:layout="@layout/fragment_f_deatail" >
+        <action
+            android:id="@+id/action_FDetailFragment2_to_futureFragment"
+            app:destination="@id/futureFragment" />
+    </fragment>
+</navigation>
