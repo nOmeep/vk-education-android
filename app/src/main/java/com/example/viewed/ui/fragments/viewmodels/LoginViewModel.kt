@@ -12,7 +12,12 @@ class LoginViewModel @Inject constructor(
     firebaseAuth: FirebaseAuth
 ) : ViewModel() {
     private var auth = firebaseAuth
-    fun signIn(login: String, password: String, handlerOk: () -> Unit, handlerBad: (error: String) -> Unit) {
+    fun signIn(
+        login: String,
+        password: String,
+        handlerOk: () -> Unit,
+        handlerBad: (error: String) -> Unit
+    ) {
         if (login.isEmpty()) {
             handlerBad("Поле email не может быть пустым")
             return

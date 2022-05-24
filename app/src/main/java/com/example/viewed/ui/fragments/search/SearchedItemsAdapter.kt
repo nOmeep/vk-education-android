@@ -21,7 +21,7 @@ class SearchedItemsAdapter : PagingDataAdapter<Info, SearchedItemsViewHolder>(DI
             binding.apply {
                 Glide.with(itemView)
                     .load("https://image.tmdb.org/t/p/w500/${info.poster_path}")
-                    .apply (RequestOptions.bitmapTransform (RoundedCorners (14)))
+                    .apply(RequestOptions.bitmapTransform(RoundedCorners(14)))
                     .error(R.drawable.no_poster)
                     .into(ivMoviePoster)
 

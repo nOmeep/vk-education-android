@@ -22,7 +22,8 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::i
         navController = view.findNavController()
         binding.loginButton.setOnClickListener {
             viewModel.signIn(
-                binding.login.text.toString(), binding.password.text.toString(), { ok() }, { error: String -> error(error) }
+                binding.login.text.toString(), binding.password.text.toString(), { ok() },
+                { error: String -> error(error) }
             )
         }
         binding.registerButton.setOnClickListener {

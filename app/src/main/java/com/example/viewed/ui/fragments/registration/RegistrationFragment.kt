@@ -13,7 +13,8 @@ import com.example.viewed.ui.fragments.viewmodels.RegistrationViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class RegistrationFragment : BaseFragment<FragmentRegistrationBinding>(FragmentRegistrationBinding::inflate) {
+class RegistrationFragment :
+    BaseFragment<FragmentRegistrationBinding>(FragmentRegistrationBinding::inflate) {
     private val viewModel by viewModels<RegistrationViewModel>()
     private lateinit var navController: NavController
 
@@ -22,7 +23,13 @@ class RegistrationFragment : BaseFragment<FragmentRegistrationBinding>(FragmentR
         navController = view.findNavController()
 
         binding.registerActionButton.setOnClickListener {
-            viewModel.signUp(binding.emailRegister.text.toString(), binding.passwordRegister.text.toString(), binding.passwordRegisterRepeat.text.toString(), { ok() }, { error: String -> error(error) })
+            viewModel.signUp(
+                binding.emailRegister.text.toString(),
+                binding.passwordRegister.text.toString(),
+                binding.passwordRegisterRepeat.text.toString(),
+                { ok() },
+                { error: String -> error(error) }
+            )
         }
     }
 

@@ -1,7 +1,5 @@
 package com.example.viewed.api.repo
 
-import android.util.Log
-import androidx.lifecycle.*
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.viewed.BuildConfig
@@ -144,7 +142,12 @@ class ProfileRepository @Inject constructor(
                         if (data != null && data.get("Later") !== null) {
                             data.get("Later")!!.forEach { cardsLater ->
                                 try {
-                                    listMovies.add(api.findMovieById(cardsLater, BuildConfig.API_KEY))
+                                    listMovies.add(
+                                        api.findMovieById(
+                                            cardsLater,
+                                            BuildConfig.API_KEY
+                                        )
+                                    )
                                 } catch (e: IOException) {
                                     print(e)
                                 } catch (e: HttpException) {
