@@ -19,19 +19,18 @@ class RegistrationFragment : BaseFragment<FragmentRegistrationBinding>(FragmentR
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        print(12314124122414124)
         navController = view.findNavController()
-        navController.navigateUp()
+
         binding.registerActionButton.setOnClickListener {
-            viewModel.signUp(binding.emailRegister.text.toString(), binding.passwordRegister.text.toString(), { ok() }, { error: String -> error(error) })
+            viewModel.signUp(binding.emailRegister.text.toString(), binding.passwordRegister.text.toString(), binding.passwordRegisterRepeat.text.toString(), { ok() }, { error: String -> error(error) })
         }
     }
 
     fun error(error: String) {
-        Toast.makeText(context, error, Toast.LENGTH_SHORT)
+        Toast.makeText(context, error, Toast.LENGTH_SHORT).show()
     }
 
     fun ok() {
-        navController.navigate(R.id.action_loginFragment_to_profileFragment)
+        navController.navigate(R.id.action_registrationFragment_to_profileFragment)
     }
 }

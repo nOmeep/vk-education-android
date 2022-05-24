@@ -1,6 +1,5 @@
 package com.example.viewed.ui.fragments.profile
 
-import android.content.ContentValues
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -21,7 +20,6 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding>(FragmentProfileBind
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         navController = view.findNavController()
-        navController.navigateUp()
 
         val profileMoviesAdapter = ProfileItemsAdapter { x: Int -> viewModel.delMoviesByViewed(x) }
 
@@ -46,11 +44,18 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding>(FragmentProfileBind
             viewModel.switchMoviesWatch()
         }
 
-        binding.exitOrLogin.setOnClickListener {
-            Log.w(ContentValues.TAG, "signInWithEmail:failure")
-            navController.navigate(R.id.action_profileFragment_to_loginFragment)
+        if (viewModel.getUserName() == "") {
+            binding.email.setText("Аноним")
+            binding.exitOrLogin.setOnClickListener {
+                navController.navigate(R.id.action_profileFragment_to_loginFragment)
+            }
+        } else {
+            binding.email.setText(viewModel.getUserName())
+            binding.exitOrLogin.setText("Выйти")
+            binding.exitOrLogin.setOnClickListener {
+                viewModel.signOut()
+                navController.navigate(R.id.action_profileFragment_to_profileFragment)
+            }
         }
-
-        binding.email.setText(viewModel.getUserName())
     }
 }

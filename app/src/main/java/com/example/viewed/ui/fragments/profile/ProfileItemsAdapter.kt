@@ -1,5 +1,6 @@
 package com.example.viewed.ui.fragments.profile
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
@@ -12,17 +13,17 @@ import com.example.viewed.R
 import com.example.viewed.api.items.SingleMovie
 import com.example.viewed.databinding.ItemProfileResultMovieBinding
 
-class ProfileItemsAdapter(private var deleteFunction: (id: Int) -> Unit) : RecyclerView.Adapter<ProfileItemsAdapter.ProfileItemViewHolder>() {
+class ProfileItemsAdapter(private var deleteFunction: (id: Int) -> Unit) :
+    RecyclerView.Adapter<ProfileItemsAdapter.ProfileItemViewHolder>() {
     private val differ = AsyncListDiffer(this, DIFF_UTIL)
 
     inner class ProfileItemViewHolder(private val binding: ItemProfileResultMovieBinding) :
         RecyclerView.ViewHolder(binding.root) {
-
         fun bind(info: SingleMovie) {
             binding.apply {
                 Glide.with(itemView)
                     .load("https://image.tmdb.org/t/p/w500/${info.poster_path}")
-                    .apply (RequestOptions.bitmapTransform (RoundedCorners (14)))
+                    .apply(RequestOptions.bitmapTransform(RoundedCorners(14)))
                     .error(R.drawable.no_poster)
                     .into(ivMoviePoster)
 
@@ -60,11 +61,16 @@ class ProfileItemsAdapter(private var deleteFunction: (id: Int) -> Unit) : Recyc
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProfileItemViewHolder {
-        val binding = ItemProfileResultMovieBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding = ItemProfileResultMovieBinding.inflate(
+            LayoutInflater.from(parent.context),
+            parent,
+            false
+        )
         return ProfileItemViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: ProfileItemViewHolder, position: Int) = holder.bind(differ.currentList[position])
+    override fun onBindViewHolder(holder: ProfileItemViewHolder, position: Int) =
+        holder.bind(differ.currentList[position])
 
     override fun getItemCount(): Int = differ.currentList.size
 }

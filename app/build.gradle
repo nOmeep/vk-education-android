@@ -62,9 +62,12 @@ dependencies {
     implementation 'androidx.compose.compiler:compiler:1.2.0-alpha07'
     implementation 'androidx.compose.material3:material3:1.0.0-alpha09'
 
-    // Firebase
+    // FirebaseFirestore
+    implementation 'com.google.firebase:firebase-firestore-ktx'
+
+    // FirebaseAuth
     implementation 'com.google.firebase:firebase-auth-ktx'
-    implementation platform('com.google.firebase:firebase-bom:30.0.1')
+    implementation platform('com.google.firebase:firebase-bom:30.0.2')
 
     // Glide
     implementation 'com.github.bumptech.glide:glide:4.13.0'

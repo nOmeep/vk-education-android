@@ -14,7 +14,7 @@
     <string name="search">Поиск</string>
     <string name="search_nav">Поиск</string>
     <string name="saved_films_nav">Мои фильмы</string>
-    <string name="login">Логин</string>
+    <string name="login">Email</string>
     <string name="password">Пароль</string>
     <string name="passwordRepeat">Повтор парля</string>
     <string name="signIn">Войти</string>

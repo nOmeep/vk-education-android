@@ -20,7 +20,6 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::i
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         navController = view.findNavController()
-        navController.navigateUp()
         binding.loginButton.setOnClickListener {
             viewModel.signIn(
                 binding.login.text.toString(), binding.password.text.toString(), { ok() }, { error: String -> error(error) }
@@ -32,7 +31,7 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::i
     }
 
     fun error(error: String) {
-        Toast.makeText(context, error, Toast.LENGTH_SHORT)
+        Toast.makeText(context, error, Toast.LENGTH_SHORT).show()
     }
 
     fun ok() {

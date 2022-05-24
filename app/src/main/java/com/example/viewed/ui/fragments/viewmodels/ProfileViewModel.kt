@@ -10,9 +10,18 @@ import javax.inject.Inject
 @HiltViewModel
 class ProfileViewModel @Inject constructor(
     private val repository: ProfileRepository,
-    firebaseAuth: FirebaseAuth
+    private val firebaseAuth: FirebaseAuth
 ) : ViewModel() {
-    private var auth = firebaseAuth
+    private var email: String
+
+    init {
+        if (firebaseAuth.currentUser == null || firebaseAuth.currentUser?.email == null) {
+            email = ""
+        } else {
+            email = firebaseAuth.currentUser!!.email.toString()
+        }
+    }
+
     fun getMoviesLiveData() = repository.findMoviesLiveData()
 
     fun switchMoviesWatch() {
@@ -34,18 +43,28 @@ class ProfileViewModel @Inject constructor(
     }
 
     fun delMoviesByWatch(id: Int) {
-        repository.delMoviesByWatch(id)
+        viewModelScope.launch {
+            repository.delMoviesByWatch(id)
+        }
     }
 
     fun delMoviesByViewed(id: Int) {
-        repository.delMoviesByViewed(id)
+        viewModelScope.launch {
+            repository.delMoviesByViewed(id)
+        }
     }
 
     fun delMoviesByLater(id: Int) {
-        repository.delMoviesByLater(id)
+        viewModelScope.launch {
+            repository.delMoviesByLater(id)
+        }
+    }
+
+    fun signOut() {
+        return firebaseAuth.signOut()
     }
 
     fun getUserName(): String {
-        return auth.currentUser.toString()
+        return email
     }
 }

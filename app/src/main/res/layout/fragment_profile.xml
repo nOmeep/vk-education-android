@@ -4,7 +4,7 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-    android:background="@color/background"
+        android:background="@color/background"
         tools:context=".ui.fragments.profile.ProfileFragment">
 
     <LinearLayout
@@ -23,9 +23,9 @@
             android:layout_height="wrap_content"
             android:gravity="left"
             android:text="@string/name"
-            android:textSize="15sp"
+            android:textSize="20sp"
             app:layout_constraintTop_toTopOf="parent"
-            android:layout_weight="2" />
+            android:layout_weight="9" />
 
         <TextView
             android:layout_height="wrap_content"
