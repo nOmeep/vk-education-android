@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="bottom_navigation_view_height">40dp</dimen>
+    <dimen name="small_margin_or_padding_4dp">4dp</dimen>
+    <dimen name="small_bar_height_50dp">50dp</dimen>
+</resources>

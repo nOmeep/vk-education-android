@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+    android:background="@color/background"
+        tools:context=".ui.fragments.profile.ProfileFragment">
+
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="25sp"
+            android:text="@string/profile"
+            android:id="@+id/profileFragment"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+    <Button
+            android:text="@string/viewed"
+            android:textSize="11sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/profileFragment"
+            app:layout_constraintRight_toLeftOf="@id/watch"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/viewed" />
+
+    <Button
+            android:text="@string/watch"
+            android:textSize="11sp"
+            app:layout_constraintTop_toBottomOf="@id/profileFragment"
+            app:layout_constraintLeft_toRightOf="@id/viewed"
+            android:layout_width="0dp"
+            app:layout_constraintRight_toLeftOf="@id/later"
+            android:layout_height="wrap_content"
+            android:id="@+id/watch" />
+
+    <Button
+            android:text="@string/later"
+            android:textSize="11sp"
+            app:layout_constraintTop_toBottomOf="@id/profileFragment"
+            app:layout_constraintLeft_toRightOf="@id/watch"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/later" />
+
+    <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvProfileResult"
+            android:layout_width="match_parent"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@id/watch"
+            android:layout_height="0dp"
+            tools:listitem="@layout/item_profile_result_movie"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

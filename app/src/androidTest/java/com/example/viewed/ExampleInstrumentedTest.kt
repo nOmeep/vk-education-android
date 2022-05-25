@@ -1,5 +1,6 @@
 package com.example.viewed
 
+ feature-dmitrii2204-popular-upcoming-movies
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
 
@@ -8,6 +9,14 @@ import org.junit.runner.RunWith
 
 import org.junit.Assert.*
 
+
+import androidx.test.ext.junit.runners.AndroidJUnit4
+import androidx.test.platform.app.InstrumentationRegistry
+import org.junit.Assert.assertEquals
+import org.junit.Test
+import org.junit.runner.RunWith
+
+ mvp1
 /**
  * Instrumented test, which will execute on an Android device.
  *
@@ -19,6 +28,12 @@ class ExampleInstrumentedTest {
     fun useAppContext() {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
+ feature-dmitrii2204-popular-upcoming-movies
         assertEquals("com.example.viewed", appContext.packageName)
     }
 }
+
+        assertEquals("com.example.emptyproject", appContext.packageName)
+    }
+}
+ mvp1
