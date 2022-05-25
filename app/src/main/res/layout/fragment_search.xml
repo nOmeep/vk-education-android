@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/small_margin_or_padding_4dp"
+        android:background="@color/background"
+        tools:context=".ui.fragments.search.SearchFragment">
+
+    <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilBeauty"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginHorizontal="@dimen/small_margin_or_padding_4dp"
+            app:errorEnabled="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:hintTextColor="@color/light_text"
+            android:textColorHint="@color/light_text"
+            android:layout_marginTop="4dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etSearch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/search"
+                android:textSize="17sp"
+                android:inputType="text"
+                android:textColor="@color/text"
+                android:background="@drawable/rounded_corners_search" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvSearchResult"
+            android:layout_width="match_parent"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:orientation="vertical"
+            android:layout_height="0dp"
+            tools:listitem="@layout/item_search_result_movie"
+            app:layout_constraintTop_toBottomOf="@id/tilBeauty"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+    <TextView
+            android:id="@+id/tvErrorMessage"
+            android:text="@string/error_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            tools:visibility="visible"
+            android:textSize="20sp"
+            app:layout_constraintTop_toTopOf="@id/rvSearchResult"
+            app:layout_constraintBottom_toBottomOf="@id/rvSearchResult"
+            app:layout_constraintLeft_toLeftOf="@id/rvSearchResult"
+            app:layout_constraintRight_toRightOf="@id/rvSearchResult" />
+
+    <Button
+            android:id="@+id/btnRetry"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/retry"
+            android:visibility="gone"
+            tools:visibility="visible"
+            app:layout_constraintLeft_toLeftOf="@id/tvErrorMessage"
+            app:layout_constraintTop_toBottomOf="@id/tvErrorMessage"
+            app:layout_constraintRight_toRightOf="@id/tvErrorMessage"
+            />
+
+    <ProgressBar
+            android:id="@+id/pbLoading"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:visibility="visible"
+            app:layout_constraintTop_toTopOf="@id/rvSearchResult"
+            app:layout_constraintBottom_toBottomOf="@id/rvSearchResult"
+            app:layout_constraintLeft_toLeftOf="@id/rvSearchResult"
+            app:layout_constraintRight_toRightOf="@id/rvSearchResult"
+            style="@android:style/Widget.Holo.ProgressBar" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
